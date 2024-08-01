@@ -10,6 +10,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * author: amitachaudhari9062@gmail.com
+ * This is a Controller for Addresses handles all the requests related to Address.
+ **/
 @RestController
 @RequestMapping("/AKBank/addresses")
 public class AddressController {

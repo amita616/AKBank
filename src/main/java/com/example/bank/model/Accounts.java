@@ -9,11 +9,16 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+/**
+ * author: amitachaudhari9062@gmail.com
+ * This is an Entity class for Accounts.
+ * Accounts contains account information of a customer.
+ */
+
 @Entity
 @Table(name = "ACCOUNTS")
 public class Accounts {
     @Id
-    //@GeneratedValue(strategy = GenerationType.AUTO)
     private int accountNumber;
     @Column
     private double balance;

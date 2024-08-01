@@ -15,22 +15,22 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * author: amitachaudhari9062@gmail.com
+ * This is a Controller for Jwt Authentication.
+ **/
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
 
     @Autowired
     private UserDetailsService userDetailsService;
-
     @Autowired
     private AuthenticationManager manager;
-
-
     @Autowired
     private JwtHelper helper;
 
     private Logger logger = LoggerFactory.getLogger(AuthController.class);
-
 
     @PostMapping("/login")
     public ResponseEntity<JwtResponse> login(@RequestBody JwtRequest request) {

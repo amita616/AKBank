@@ -2,6 +2,10 @@ package com.example.bank.model;
 
 import org.springframework.stereotype.Component;
 
+/**
+ * author: amitachaudhari9062@gmail.com
+ * This is a Component class for jwtRequest.
+ */
 @Component
 public class JwtRequest {
     private String name;
@@ -30,9 +34,11 @@ public class JwtRequest {
     public void setPassword(String password) {
         this.password = password;
     }
+
     public static Builder builder() {
         return new Builder();
     }
+
     public static class Builder {
         private String name;
         private String password;

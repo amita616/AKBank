@@ -7,6 +7,13 @@ import java.util.Set;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
+/**
+ * author: amitachaudhari9062@gmail.com
+ * This is an Entity class for Customer.
+ * Customer has one-to-many relationship with Address on join column customer id.
+ * JsonManagedReference(ParentSide): I have used this to avoid infinite recursion issues during
+ * the serialization process When we have two classes with a bidirectional relationship.
+ */
 @Entity
 @Table(name = "CUSTOMER")
 public class Customer {
@@ -15,19 +22,17 @@ public class Customer {
     private int customerId;
     @Column
     private String customerName;
-
     @Column
     private int accountNumber;
     @JsonManagedReference
-    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, fetch = FetchType.LAZY,orphanRemoval = true)
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private Set<Address> addresses;
-
     @Column
     private long phoneNumber;
-
     @Column
     private String password;
-    public Customer(){
+
+    public Customer() {
 
     }
 

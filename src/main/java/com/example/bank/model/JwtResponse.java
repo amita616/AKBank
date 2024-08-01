@@ -1,7 +1,10 @@
 package com.example.bank.model;
-
 import org.springframework.stereotype.Component;
 
+/**
+ * author: amitachaudhari9062@gmail.com
+ * This is a Component class for jwtResponse.
+ */
 @Component
 public class JwtResponse {
     private String jwtToken;

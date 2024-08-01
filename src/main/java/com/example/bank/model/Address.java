@@ -3,8 +3,15 @@ package com.example.bank.model;
 import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+
+/**
+ * author: amitachaudhari9062@gmail.com
+ * This is an Entity class for address.
+ * Address has many-to-one relationship with customer on join column customer id.
+ * JsonBackReference(ChildSide): I have used this to avoid infinite recursion issues during
+ * the serialization process When we have two classes with a bidirectional relationship.
+ */
 
 @Entity
 @Table(name = "ADDRESS")
@@ -40,6 +47,7 @@ public class Address {
 
     public Address() {
     }
+
     public int getAddressId() {
         return addressId;
     }
