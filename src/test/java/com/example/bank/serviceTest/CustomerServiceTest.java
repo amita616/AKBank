@@ -110,79 +110,7 @@ public class CustomerServiceTest {
             assertEquals("John Doe", customers.get(0).getCustomerName());
             verify(customerRepository).findAll();
         }
-   /* @Test
-    void updateCustomer() {
-        // Prepare test data
-        Customer existingCustomer = new Customer();
-        existingCustomer.setCustomerId(1);
-        existingCustomer.setCustomerName("Jane Doe");
-        existingCustomer.setAccountNumber(123456789);
-        existingCustomer.setPhoneNumber(9876543210L);
-        existingCustomer.setPassword("oldPassword");
 
-        Address existingAddress = new Address();
-        existingAddress.setAddressId(1);
-        existingAddress.setHouseno(123);
-        existingAddress.setHouseName("Doe House");
-        existingAddress.setCity("City");
-        existingAddress.setState("State");
-        existingAddress.setPincode(123456);
-        existingCustomer.setAddresses(Set.of(existingAddress));
-
-        Address newAddress = new Address();
-        newAddress.setAddressId(0); // new address
-        newAddress.setHouseno(456);
-        newAddress.setHouseName("New House");
-        newAddress.setCity("New City");
-        newAddress.setState("New State");
-        newAddress.setPincode(654321);
-
-        Customer updatedCustomer = new Customer();
-        updatedCustomer.setCustomerName("Jane Doe Updated");
-        updatedCustomer.setAccountNumber(123456789);
-        updatedCustomer.setPhoneNumber(9876543210L);
-        updatedCustomer.setAddresses(Set.of(existingAddress, newAddress));
-        updatedCustomer.setPassword("newPassword");
-
-        // Set up mocks
-        when(customerRepository.findById(1)).thenReturn(Optional.of(existingCustomer));
-        when(passwordEncoder.encode("newPassword")).thenReturn("encodedPassword");
-
-        // Create expected updated customer for save
-        Customer customerToSave = new Customer();
-        customerToSave.setCustomerId(1);
-        customerToSave.setCustomerName("Jane Doe Updated");
-        customerToSave.setAccountNumber(123456789);
-        customerToSave.setPhoneNumber(9876543210L);
-        customerToSave.setAddresses(Set.of(existingAddress, newAddress));
-        customerToSave.setPassword("encodedPassword");
-
-        when(customerRepository.save(any(Customer.class))).thenReturn(customerToSave);
-
-        // Perform the update
-        Customer result = customerService.updateCustomer(1, updatedCustomer);
-
-        // Verify interactions and assert results
-        assertNotNull(result);
-        assertEquals("Jane Doe Updated", result.getCustomerName());
-        assertEquals(9876543210L, result.getPhoneNumber());
-        assertEquals("encodedPassword", result.getPassword());
-        assertEquals(2, result.getAddresses().size()); // Check if both addresses are present
-        assertTrue(result.getAddresses().contains(newAddress));
-        assertTrue(result.getAddresses().contains(existingAddress));
-
-        verify(customerRepository).findById(1);
-        verify(customerRepository).save(argThat(customer ->
-                customer.getCustomerId() == 1 &&
-                        "Jane Doe Updated".equals(customer.getCustomerName()) &&
-                        customer.getAccountNumber() == 123456789 &&
-                        customer.getPhoneNumber() == 9876543210L &&
-                        "encodedPassword".equals(customer.getPassword()) &&
-                        customer.getAddresses().contains(newAddress) &&
-                        customer.getAddresses().contains(existingAddress)
-        ));
-    }
-*/
     @Test
         void deleteCustomer() {
             doNothing().when(customerRepository).deleteById(1);
